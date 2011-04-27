@@ -1,7 +1,8 @@
 package uk.co.lemmata.image.oc;
 
-import org.apache.commons.lang.builder.EqualsBuilder;
-import org.apache.commons.lang.builder.HashCodeBuilder;
+import static java.lang.Math.*;
+
+import org.apache.commons.lang.builder.*;
 
 public final class CommonsMathComplexNumberImpl implements ComplexNumber {
 
@@ -26,7 +27,7 @@ public final class CommonsMathComplexNumberImpl implements ComplexNumber {
 
 	@Override
 	public String toString() {
-		return real + " " + sign(imaginary) + " " + Math.abs(imaginary) + IMAGINARY_UNIT_SYMBOL;
+		return real + " " + sign(imaginary) + " " + abs(imaginary) + IMAGINARY_UNIT_SYMBOL;
 	}
 	
 	private String sign(final double d) {

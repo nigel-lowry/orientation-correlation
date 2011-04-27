@@ -1,7 +1,7 @@
 package uk.co.lemmata.image.oc;
 
 
-import org.junit.Before;
+import org.junit.*;
 
 public class JScienceComplexNumberImplTest {
 	

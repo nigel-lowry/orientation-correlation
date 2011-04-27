@@ -1,11 +1,11 @@
 package uk.co.lemmata.image.oc;
 
 
-import static org.junit.Assert.*;
-
 import static org.hamcrest.Matchers.*;
-import org.junit.Before;
-import org.junit.Test;
+import static org.junit.Assert.*;
+import static java.lang.Math.*;
+
+import org.junit.*;
 
 public class CommonsMathComplexNumberImplTest {
 	
@@ -24,7 +24,7 @@ public class CommonsMathComplexNumberImplTest {
 	
 	@Test
 	public void signumOfComplexNumberWithMagnitudeOneIsIdentical() throws Exception {
-		final double square_root_of_two = Math.sqrt(2.0);
+		final double square_root_of_two = sqrt(2.0);
 		complexNumber = CommonsMathComplexNumberImpl.realImaginary(square_root_of_two, square_root_of_two);
 		
 		assertThat(complexNumber.signum(), is(complexNumber));
