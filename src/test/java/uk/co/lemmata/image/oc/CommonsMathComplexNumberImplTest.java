@@ -45,5 +45,26 @@ public class CommonsMathComplexNumberImplTest {
 		
 		assertThat(complex1, is(not(complex2)));
 	}
+	
+	@Test
+	public void testToStringWithPositiveImaginaryPart() throws Exception {
+		complexNumber = CommonsMathComplexNumberImpl.realImaginary(1.0, 2.0);
+		
+		assertThat(complexNumber, hasToString(is("1.0 + 2.0i")));
+	}
+	
+	@Test
+	public void testToStringWithZeroImaginaryPart() throws Exception {
+		complexNumber = CommonsMathComplexNumberImpl.realImaginary(1.0, 0.0);
+		
+		assertThat(complexNumber, hasToString(is("1.0 + 0.0i")));
+	}
+	
+	@Test
+	public void testToStringWithNegativeImaginaryPart() throws Exception {
+		complexNumber = CommonsMathComplexNumberImpl.realImaginary(1.0, -2.0);
+		
+		assertThat(complexNumber, hasToString(is("1.0 - 2.0i")));
+	}
 
 }

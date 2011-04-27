@@ -5,6 +5,8 @@ import org.apache.commons.lang.builder.HashCodeBuilder;
 
 public final class CommonsMathComplexNumberImpl implements ComplexNumber {
 
+	private static final char IMAGINARY_UNIT_SYMBOL = 'i';
+	
 	private final double real;
 	private final double imaginary;
 
@@ -20,6 +22,15 @@ public final class CommonsMathComplexNumberImpl implements ComplexNumber {
 	@Override
 	public ComplexNumber signum() {
 		return this;
+	}
+
+	@Override
+	public String toString() {
+		return real + " " + sign(imaginary) + " " + Math.abs(imaginary) + IMAGINARY_UNIT_SYMBOL;
+	}
+	
+	private String sign(final double d) {
+		return d < 0.0 ? "-" : "+";
 	}
 
 	@Override
