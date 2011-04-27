@@ -97,5 +97,31 @@ public class CommonsMathComplexNumberImplTest {
 		
 		assertThat(complexNumber, hasToString(is("1.0 - 2.0i")));
 	}
+	
+	@Test
+	public void testConjugateFromPositiveToNegative() throws Exception {
+		final double real = 1.0;
+		final double imaginary = 2.0;
+		
+		complexNumber = CommonsMathComplexNumberImpl.realImaginary(real, imaginary);
+		
+		final ComplexNumber conjugate = complexNumber.conjugate();
+		
+		assertThat(conjugate.getReal(), is(real));
+		assertThat(conjugate.getImaginary(), is(-imaginary));
+	}
+	
+	@Test
+	public void testConjugateFromNegativeToPositive() throws Exception {
+		final double real = 1.0;
+		final double imaginary = -2.0;
+		
+		complexNumber = CommonsMathComplexNumberImpl.realImaginary(real, imaginary);
+		
+		final ComplexNumber conjugate = complexNumber.conjugate();
+		
+		assertThat(conjugate.getReal(), is(real));
+		assertThat(conjugate.getImaginary(), is(-imaginary));
+	}
 
 }

@@ -32,4 +32,10 @@ public class JScienceComplexNumberImpl implements ComplexNumber {
 		return 0;
 	}
 
+	@Override
+	public ComplexNumber conjugate() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

@@ -71,5 +71,10 @@ public final class CommonsMathComplexNumberImpl implements ComplexNumber {
 	public double getMagnitude() {
 		return complex.abs();
 	}
+
+	@Override
+	public ComplexNumber conjugate() {
+		return new CommonsMathComplexNumberImpl(complex.conjugate());
+	}
 	
 }

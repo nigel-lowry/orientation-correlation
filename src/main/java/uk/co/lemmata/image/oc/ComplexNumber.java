@@ -12,4 +12,6 @@ public interface ComplexNumber {
 
 	double getMagnitude();
 
+	ComplexNumber conjugate();
+
 }
