@@ -1,5 +1,8 @@
 package uk.co.lemmata.image.oc;
 
+import org.apache.commons.lang.builder.EqualsBuilder;
+import org.apache.commons.lang.builder.HashCodeBuilder;
+
 public final class CommonsMathComplexNumberImpl implements ComplexNumber {
 
 	private final double real;
@@ -19,4 +22,14 @@ public final class CommonsMathComplexNumberImpl implements ComplexNumber {
 		return this;
 	}
 
+	@Override
+	public boolean equals(Object other) {
+		return EqualsBuilder.reflectionEquals(this, other);
+	}
+
+	@Override
+	public int hashCode() {
+		return HashCodeBuilder.reflectionHashCode(this);
+	}
+	
 }
