@@ -11,11 +11,6 @@ public class CommonsMathComplexNumberImplTest {
 	
 	private ComplexNumber complexNumber;
 	
-	@Before
-	public void setUp() throws Exception {
-//		complexNumber = new CommonsMathComplexNumberImpl();
-	}
-	
 	@Test
 	public void signumOfComplexNumberWithMagnitudeZeroIsIdentical() throws Exception {
 		complexNumber = CommonsMathComplexNumberImpl.realImaginary(0.0, 0.0);
