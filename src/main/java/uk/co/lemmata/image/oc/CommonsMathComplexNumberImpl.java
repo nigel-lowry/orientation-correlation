@@ -39,7 +39,7 @@ public final class CommonsMathComplexNumberImpl implements ComplexNumber {
 	}
 	
 	private String sign(final double d) {
-		return d < 0.0 ? "-" : "+";
+		return d >= 0.0 ? "+" : "-";
 	}
 
 	@Override
