@@ -8,4 +8,28 @@ public class JScienceComplexNumberImpl implements ComplexNumber {
 		return null;
 	}
 
+	@Override
+	public double getReal() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public double getImaginary() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public double getPhaseInRadians() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public double getMagnitude() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

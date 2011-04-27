@@ -3,31 +3,34 @@ package uk.co.lemmata.image.oc;
 import static java.lang.Math.*;
 
 import org.apache.commons.lang.builder.*;
+import org.apache.commons.math.complex.*;
 
 public final class CommonsMathComplexNumberImpl implements ComplexNumber {
 
 	private static final char IMAGINARY_UNIT_SYMBOL = 'i';
 	
-	private final double real;
-	private final double imaginary;
-
+	private final Complex complex;
+	
 	public static ComplexNumber realImaginary(final double real, final double imaginary) {
-		return new CommonsMathComplexNumberImpl(real, imaginary);
+		return new CommonsMathComplexNumberImpl(new Complex(real, imaginary));
 	}
 	
-	private CommonsMathComplexNumberImpl(final double real, final double imaginary) {
-		this.real = real;
-		this.imaginary = imaginary;
+	private CommonsMathComplexNumberImpl(final Complex complex) {
+		this.complex = complex;
+	}
+	
+	public static ComplexNumber phaseInRadiansMagnitude(final double phaseInRadians, final double magnitude) {
+		return new CommonsMathComplexNumberImpl(new Complex(magnitude * cos(phaseInRadians), magnitude * sin(phaseInRadians)));
 	}
 
 	@Override
 	public ComplexNumber signum() {
-		return this;
+		return this; // TODO
 	}
 
 	@Override
 	public String toString() {
-		return real + " " + sign(imaginary) + " " + abs(imaginary) + IMAGINARY_UNIT_SYMBOL;
+		return getReal() + " " + sign(getImaginary()) + " " + abs(getImaginary()) + IMAGINARY_UNIT_SYMBOL;
 	}
 	
 	private String sign(final double d) {
@@ -42,6 +45,26 @@ public final class CommonsMathComplexNumberImpl implements ComplexNumber {
 	@Override
 	public int hashCode() {
 		return HashCodeBuilder.reflectionHashCode(this);
+	}
+
+	@Override
+	public double getReal() {
+		return complex.getReal();
+	}
+
+	@Override
+	public double getImaginary() {
+		return complex.getImaginary();
+	}
+
+	@Override
+	public double getPhaseInRadians() {
+		return complex.getArgument();
+	}
+
+	@Override
+	public double getMagnitude() {
+		return complex.abs();
 	}
 	
 }

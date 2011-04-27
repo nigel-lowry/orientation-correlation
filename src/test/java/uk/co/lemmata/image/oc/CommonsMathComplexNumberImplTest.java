@@ -9,7 +9,31 @@ import org.junit.*;
 
 public class CommonsMathComplexNumberImplTest {
 	
+	private static final double ERROR_DELTA = .0001;
+	
 	private ComplexNumber complexNumber;
+	
+	@Test
+	public void testCartesianStaticFactory() throws Exception {
+		final double real = 1.0;
+		final double imaginary = 2.0;
+		
+		complexNumber = CommonsMathComplexNumberImpl.realImaginary(real, imaginary);
+		
+		assertThat(complexNumber.getReal(), is(real));
+		assertThat(complexNumber.getImaginary(), is(imaginary));
+	}
+	
+	@Test
+	public void testPolarStaticFactory() throws Exception {
+		final double thirtyDegreesInRadians = toRadians(30.0);
+		final double magnitude = 2.0;
+		
+		complexNumber = CommonsMathComplexNumberImpl.phaseInRadiansMagnitude(thirtyDegreesInRadians, magnitude);
+		
+		assertThat(complexNumber.getPhaseInRadians(), is(closeTo(thirtyDegreesInRadians, ERROR_DELTA)));
+		assertThat(complexNumber.getMagnitude(), is(closeTo(magnitude, ERROR_DELTA)));
+	}
 	
 	@Test
 	public void signumOfComplexNumberWithMagnitudeZeroIsIdentical() throws Exception {
@@ -23,6 +47,11 @@ public class CommonsMathComplexNumberImplTest {
 		complexNumber = CommonsMathComplexNumberImpl.realImaginary(square_root_of_two, square_root_of_two);
 		
 		assertThat(complexNumber.signum(), is(complexNumber));
+	}
+	
+	@Test
+	public void signumOfComplexNumberWithMagnitudeGreaterThanZeroHasMagnitudeOfOneAndSameDirection() throws Exception {
+		complexNumber = CommonsMathComplexNumberImpl.phaseInRadiansMagnitude(PI, 5.0);
 	}
 	
 	@Test

@@ -4,4 +4,12 @@ public interface ComplexNumber {
 
 	ComplexNumber signum();
 
+	double getReal();
+
+	double getImaginary();
+
+	double getPhaseInRadians();
+
+	double getMagnitude();
+
 }
