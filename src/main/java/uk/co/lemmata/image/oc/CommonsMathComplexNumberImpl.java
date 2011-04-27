@@ -8,6 +8,7 @@ import org.apache.commons.math.complex.*;
 public final class CommonsMathComplexNumberImpl implements ComplexNumber {
 
 	private static final char IMAGINARY_UNIT_SYMBOL = 'i';
+	public static final CommonsMathComplexNumberImpl ZERO = new CommonsMathComplexNumberImpl(Complex.ZERO);
 	
 	private final Complex complex;
 	
@@ -25,7 +26,11 @@ public final class CommonsMathComplexNumberImpl implements ComplexNumber {
 
 	@Override
 	public ComplexNumber signum() {
-		return this; // TODO
+		if (this.complex.equals(Complex.ZERO)) {
+			return ZERO;
+		}
+		
+		return phaseInRadiansMagnitude(this.getPhaseInRadians(), 1.0);
 	}
 
 	@Override

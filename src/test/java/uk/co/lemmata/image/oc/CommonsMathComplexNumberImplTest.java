@@ -4,6 +4,7 @@ package uk.co.lemmata.image.oc;
 import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.*;
 import static java.lang.Math.*;
+import static uk.co.lemmata.image.oc.CommonsMathComplexNumberImpl.ZERO;
 
 import org.junit.*;
 
@@ -43,15 +44,21 @@ public class CommonsMathComplexNumberImplTest {
 	
 	@Test
 	public void signumOfComplexNumberWithMagnitudeOneIsIdentical() throws Exception {
-		final double square_root_of_two = sqrt(2.0);
-		complexNumber = CommonsMathComplexNumberImpl.realImaginary(square_root_of_two, square_root_of_two);
+		complexNumber = CommonsMathComplexNumberImpl.phaseInRadiansMagnitude(PI, 1.0);
 		
 		assertThat(complexNumber.signum(), is(complexNumber));
 	}
 	
 	@Test
 	public void signumOfComplexNumberWithMagnitudeGreaterThanZeroHasMagnitudeOfOneAndSameDirection() throws Exception {
-		complexNumber = CommonsMathComplexNumberImpl.phaseInRadiansMagnitude(PI, 5.0);
+		final double phaseInRadians = PI;
+		
+		complexNumber = CommonsMathComplexNumberImpl.phaseInRadiansMagnitude(phaseInRadians, 5.0);
+		
+		final ComplexNumber signum = complexNumber.signum();
+		
+		assertThat(signum.getPhaseInRadians(), is(closeTo(phaseInRadians, ERROR_DELTA)));
+		assertThat(signum.getMagnitude(), is(closeTo(1.0, ERROR_DELTA)));
 	}
 	
 	@Test
