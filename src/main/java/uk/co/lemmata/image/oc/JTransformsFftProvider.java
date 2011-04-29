@@ -13,34 +13,22 @@ public class JTransformsFftProvider implements FourierTransformProvider {
 	public ComplexNumber[][] forwardFft(final ComplexNumber[][] complexNumbers) {
 		checkArgument(!isEmpty(complexNumbers));
 		
-		final double[][] primitives = toPrimitiveArray(JTransformArrayUtils.toDoubleArray(complexNumbers));
+		final double[] primitives = JTransformArrayUtils.toDoubleArray(complexNumbers);
 		new DoubleFFT_2D(height(complexNumbers), width(complexNumbers)).complexForward(primitives);
 		
-		return JTransformArrayUtils.toComplexNumberArray(primitives);
-	}
-	
-	private double[][] toPrimitiveArray(final Double[][] wrappers) {
-		final int height = height(wrappers);
-		final int width = width(wrappers);
-		final double[][] primitiveArray = new double[height][width];
-		
-		for (int row = 0; row < height; row++) {
-			for (int column = 0; column < width; column++) {
-				primitiveArray[row][column] = wrappers[row][column];
-			}
-		}
-		
-		return primitiveArray;
+		return JTransformArrayUtils.toComplexNumberArray(primitives, width(complexNumbers), height(complexNumbers));
 	}
 
 	@Override
 	public ComplexNumber[][] backwardFft(final ComplexNumber[][] complexNumbers) {
 		checkArgument(!isEmpty(complexNumbers));
 		
-		final double[][] primitives = toPrimitiveArray(JTransformArrayUtils.toDoubleArray(complexNumbers));
-		new DoubleFFT_2D(height(complexNumbers), width(complexNumbers)).complexInverse(primitives, true);
+		final int width = width(complexNumbers);
+		final int height = height(complexNumbers);
+		final double[] doubles = JTransformArrayUtils.toDoubleArray(complexNumbers);
+		new DoubleFFT_2D(height, width).complexInverse(doubles, true);
 		
-		return JTransformArrayUtils.toComplexNumberArray(primitives);
+		return JTransformArrayUtils.toComplexNumberArray(doubles, width, height);
 	}
 
 }
