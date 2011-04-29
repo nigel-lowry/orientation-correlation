@@ -16,9 +16,7 @@ public class MultiDimensionalArrayUtilsTest {
 		final int height = 2;
 		final int width = 3;
 		
-		final ComplexNumber[][] complexNumbers = new ComplexNumber[height][width]; 
-		
-		assertThat(MultiDimensionalArrayUtils.width(complexNumbers), is(width));
+		assertThat(MultiDimensionalArrayUtils.width(new ComplexNumber[height][width]), is(width));
 	}
 	
 	@Test
@@ -26,30 +24,44 @@ public class MultiDimensionalArrayUtilsTest {
 		final int height = 2;
 		final int width = 3;
 		
-		final ComplexNumber[][] complexNumbers = new ComplexNumber[height][width]; 
-		
-		assertThat(MultiDimensionalArrayUtils.height(complexNumbers), is(height));
+		assertThat(MultiDimensionalArrayUtils.height(new ComplexNumber[height][width]), is(height));
 	}
 	
 	@Test
 	public void testSizeZero() throws Exception {
-		final ComplexNumber[][] complexNumbers = new ComplexNumber[0][0];
-		
-		assertThat(MultiDimensionalArrayUtils.size(complexNumbers), is(0));
+		assertThat(MultiDimensionalArrayUtils.size(new ComplexNumber[0][0]), is(0));
 	}
 	
 	@Test
 	public void testIsEmpty() throws Exception {
-		final ComplexNumber[][] complexNumbers = new ComplexNumber[0][0];
+		assertThat(MultiDimensionalArrayUtils.isEmpty(new ComplexNumber[0][0]), is(true));
+	}
+	
+	@Test
+	public void testWhenHeightIsZeroCannotGetWidthAccuratelySoReturnZero() throws Exception {
+		final int height = 0;
+		final int width = 5;
+		final ComplexNumber[][] array = new ComplexNumber[height][width];
 		
-		assertThat(MultiDimensionalArrayUtils.isEmpty(complexNumbers), is(true));
+		assertThat(MultiDimensionalArrayUtils.width(array), is(0));
+		assertThat(MultiDimensionalArrayUtils.height(array), is(0));
+		assertThat(MultiDimensionalArrayUtils.size(array), is(0));
+	}
+	
+	@Test
+	public void testWhenWidthIsZero() throws Exception {
+		final int height = 5;
+		final int width = 0;
+		final ComplexNumber[][] array = new ComplexNumber[height][width];
+		
+		assertThat(MultiDimensionalArrayUtils.width(array), is(width));
+		assertThat(MultiDimensionalArrayUtils.height(array), is(height));
+		assertThat(MultiDimensionalArrayUtils.size(array), is(0));
 	}
 	
 	@Test
 	public void testNotEmpty() throws Exception {
-		final ComplexNumber[][] complexNumbers = new ComplexNumber[1][1];
-		
-		assertThat(MultiDimensionalArrayUtils.isEmpty(complexNumbers), is(false));
+		assertThat(MultiDimensionalArrayUtils.isEmpty(new ComplexNumber[1][1]), is(false));
 	}
 	
 	@Test
@@ -57,20 +69,38 @@ public class MultiDimensionalArrayUtilsTest {
 		final int height = 2;
 		final int width = 3;
 		
-		final ComplexNumber[][] complexNumbers = new ComplexNumber[height][width];
-		
-		assertThat(MultiDimensionalArrayUtils.size(complexNumbers), is(6));
+		assertThat(MultiDimensionalArrayUtils.size(new ComplexNumber[height][width]), is(6));
 	}
 	
 	@Test
 	public void testAt() throws Exception {
-		final ComplexNumber[][] complex2dArray = new ComplexNumber[1][2];
+		final ComplexNumber[][] array = new ComplexNumber[1][2];
 		
-		complex2dArray[0][0] = COMPLEX_00;
-		complex2dArray[0][1] = COMPLEX_01;
+		array[0][0] = COMPLEX_00;
+		array[0][1] = COMPLEX_01;
 		
-		assertThat(MultiDimensionalArrayUtils.atRowColumn(complex2dArray, 0, 0), is(COMPLEX_00));
-		assertThat(MultiDimensionalArrayUtils.atRowColumn(complex2dArray, 0, 1), is(COMPLEX_01));
+		assertThat(MultiDimensionalArrayUtils.atRowColumn(array, 0, 0), is(COMPLEX_00));
+		assertThat(MultiDimensionalArrayUtils.atRowColumn(array, 0, 1), is(COMPLEX_01));
+	}
+	
+	@Test(expected=IndexOutOfBoundsException.class)
+	public void testAtNegative() throws Exception {
+		final ComplexNumber[][] array = new ComplexNumber[1][2];
+		
+		array[0][0] = COMPLEX_00;
+		array[0][1] = COMPLEX_01;
+		
+		MultiDimensionalArrayUtils.atRowColumn(array, -1, -1);
+	}
+	
+	@Test(expected=IndexOutOfBoundsException.class)
+	public void testAtOutside() throws Exception {
+		final ComplexNumber[][] array = new ComplexNumber[1][2];
+		
+		array[0][0] = COMPLEX_00;
+		array[0][1] = COMPLEX_01;
+		
+		MultiDimensionalArrayUtils.atRowColumn(array, 1, 2);
 	}
 
 }
