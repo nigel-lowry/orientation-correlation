@@ -19,10 +19,6 @@ public final class CommonsMathComplexNumberImpl implements ComplexNumber {
 	private CommonsMathComplexNumberImpl(final Complex complex) {
 		this.complex = complex;
 	}
-	
-	public static ComplexNumber phaseInRadiansMagnitude(final double phaseInRadians, final double magnitude) {
-		return new CommonsMathComplexNumberImpl(new Complex(magnitude * cos(phaseInRadians), magnitude * sin(phaseInRadians)));
-	}
 
 	@Override
 	public ComplexNumber signum() {
@@ -31,6 +27,10 @@ public final class CommonsMathComplexNumberImpl implements ComplexNumber {
 		}
 		
 		return phaseInRadiansMagnitude(this.getPhaseInRadians(), 1.0);
+	}
+	
+	public static ComplexNumber phaseInRadiansMagnitude(final double phaseInRadians, final double magnitude) {
+		return new CommonsMathComplexNumberImpl(new Complex(magnitude * cos(phaseInRadians), magnitude * sin(phaseInRadians)));
 	}
 
 	@Override
