@@ -6,13 +6,13 @@ sourceCompatibility = 1.6
 
 repositories {
     mavenCentral()
-    mavenRepo urls: "http://maven.obiba.org/maven2/"
+    mavenRepo urls: "http://signalml.org/maven/repository"
 }
 
 dependencies {
+	compile 'edu.emory.mathcs:jtransforms:2.3'
 	compile 'com.google.guava:guava:r09'
 	compile 'org.apache.commons:commons-math:2.2'
-	compile 'org.jscience:jscience:4.3.1'
 	compile 'commons-lang:commons-lang:2.6'
 	testCompile 'org.hamcrest:hamcrest-all:1.1'
     testCompile 'junit:junit:4.8.2'
