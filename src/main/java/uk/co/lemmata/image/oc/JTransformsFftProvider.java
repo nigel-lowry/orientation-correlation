@@ -13,10 +13,12 @@ public class JTransformsFftProvider implements FourierTransformProvider {
 	public ComplexNumber[][] forwardFft(final ComplexNumber[][] complexNumbers) {
 		checkArgument(!isEmpty(complexNumbers));
 		
+		final int width = width(complexNumbers);
+		final int height = height(complexNumbers);
 		final double[] primitives = JTransformArrayUtils.toDoubleArray(complexNumbers);
-		new DoubleFFT_2D(height(complexNumbers), width(complexNumbers)).complexForward(primitives);
+		new DoubleFFT_2D(height, width).complexForward(primitives);
 		
-		return JTransformArrayUtils.toComplexNumberArray(primitives, width(complexNumbers), height(complexNumbers));
+		return JTransformArrayUtils.toComplexNumberArray(primitives, width, height);
 	}
 
 	@Override
