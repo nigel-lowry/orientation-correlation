@@ -1,11 +1,10 @@
 package uk.co.lemmata.image.oc;
 
-import org.apache.commons.math.complex.Complex;
 
 public interface FourierTransformProvider {
 
-	Complex[][] forwardFft(Complex[][] input);
+	ComplexNumber[][] forwardFft(ComplexNumber[][] input);
 
-	Complex[][] backwardFft(Complex[][] input);
+	ComplexNumber[][] backwardFft(ComplexNumber[][] input);
 
 }

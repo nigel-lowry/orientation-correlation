@@ -15,6 +15,7 @@ public class RasterArray {
 	}
 
 	public int getWidth() {
+		// TODO can get array index here if empty
 		return complex2dArray[0].length;
 	}
 
@@ -33,6 +34,10 @@ public class RasterArray {
 		}
 		
 		return doubles;
+	}
+
+	public int pixelCount() {
+		return getWidth() * getHeight();
 	}
 
 }

@@ -27,6 +27,7 @@ public class RasterArrayTest {
 		
 		assertThat(rasterArray.getHeight(), is(height));
 		assertThat(rasterArray.getWidth(), is(width));
+		assertThat(rasterArray.pixelCount(), is(6));
 	}
 	
 	@Test
