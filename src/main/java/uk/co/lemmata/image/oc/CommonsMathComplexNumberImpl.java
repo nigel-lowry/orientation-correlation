@@ -38,8 +38,8 @@ public final class CommonsMathComplexNumberImpl implements ComplexNumber {
 		return getReal() + " " + sign(getImaginary()) + " " + abs(getImaginary()) + IMAGINARY_UNIT_SYMBOL;
 	}
 	
-	private String sign(final double d) {
-		return d >= 0.0 ? "+" : "-";
+	private char sign(final double d) {
+		return d >= 0.0 ? '+' : '-';
 	}
 
 	@Override
