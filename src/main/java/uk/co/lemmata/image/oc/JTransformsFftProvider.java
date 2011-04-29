@@ -1,5 +1,6 @@
 package uk.co.lemmata.image.oc;
 
+import static uk.co.lemmata.image.oc.MultiDimensionalArrayUtils.*;
 import static com.google.common.base.Preconditions.*;
 import edu.emory.mathcs.jtransforms.fft.DoubleFFT_2D;
 
@@ -7,14 +8,12 @@ import edu.emory.mathcs.jtransforms.fft.DoubleFFT_2D;
 public class JTransformsFftProvider implements FourierTransformProvider {
 	
 	@Override
-	public ComplexNumber[][] forwardFft(final ComplexNumber[][] input) {
-		checkArgument(input.length > 0);
+	public ComplexNumber[][] forwardFft(final ComplexNumber[][] complexNumbers) {
+		checkArgument(!isEmpty(complexNumbers));
 		
-		final RasterArray rasterArray = new RasterArray(input);
+		final DoubleFFT_2D fft = new DoubleFFT_2D(height(complexNumbers), width(complexNumbers));
 		
-		final DoubleFFT_2D fft = new DoubleFFT_2D(rasterArray.getHeight(), rasterArray.getWidth());
-		
-		final double[][] doubleArray = rasterArray.to2dDoubleArray();
+		final double[][] doubleArray = JTransformArrayUtils.toDoubleArray(complexNumbers);
 		fft.complexForward(doubleArray); // this will modify arg
 		
 		// now get back to complex array
@@ -24,8 +23,8 @@ public class JTransformsFftProvider implements FourierTransformProvider {
 	}
 
 	@Override
-	public ComplexNumber[][] backwardFft(final ComplexNumber[][] input) {
-		checkArgument(input.length > 0);
+	public ComplexNumber[][] backwardFft(final ComplexNumber[][] complexNumbers) {
+		checkArgument(!isEmpty(complexNumbers));
 		// TODO Auto-generated method stub
 		return null;
 	}
