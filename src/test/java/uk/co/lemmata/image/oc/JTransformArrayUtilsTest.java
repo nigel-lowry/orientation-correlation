@@ -19,7 +19,7 @@ public class JTransformArrayUtilsTest {
 		complexNumbers[0][0] = CommonsMathComplexNumberImpl.realImaginary(1.0, 2.0);
 		complexNumbers[0][1] = CommonsMathComplexNumberImpl.realImaginary(3.0, 4.0);
 		
-		final double doubles[][] = JTransformArrayUtils.toDoubleArray(complexNumbers);
+		final Double doubles[][] = JTransformArrayUtils.toDoubleArray(complexNumbers);
 		
 		assertThat(doubles[0][0], is(1.0));
 		assertThat(doubles[0][1], is(2.0));
