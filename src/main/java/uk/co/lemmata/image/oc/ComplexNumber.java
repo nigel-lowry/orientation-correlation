@@ -1,6 +1,6 @@
 package uk.co.lemmata.image.oc;
 
-public interface ComplexNumber {
+interface ComplexNumber {
 
 	ComplexNumber signum();
 
