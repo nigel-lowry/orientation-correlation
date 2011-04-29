@@ -7,7 +7,7 @@ import org.junit.Test;
 public class FourierTransformProviderTest {
 
 	private FourierTransformProvider fftProvider;
-	private ComplexNumber[][] complexNumber2dArray;
+	private ComplexNumber[][] complexNumbers;
 	
 	@Before
 	public void setUp() throws Exception {
@@ -26,15 +26,15 @@ public class FourierTransformProviderTest {
 	
 	@Test(expected=IllegalArgumentException.class)
 	public void rejectsEmptyArrayForForwardsFft() throws Exception {
-		complexNumber2dArray = new ComplexNumber[0][0];
+		complexNumbers = new ComplexNumber[0][0];
 		
-		fftProvider.forwardFft(complexNumber2dArray);
+		fftProvider.forwardFft(complexNumbers);
 	}
 	
 	@Test(expected=IllegalArgumentException.class)
 	public void rejectsEmptyArrayForBackwardsFft() throws Exception {
-		complexNumber2dArray = new ComplexNumber[0][0];
+		complexNumbers = new ComplexNumber[0][0];
 		
-		fftProvider.backwardFft(complexNumber2dArray);
+		fftProvider.backwardFft(complexNumbers);
 	}
 }
