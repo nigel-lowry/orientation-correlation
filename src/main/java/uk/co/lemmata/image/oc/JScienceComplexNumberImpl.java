@@ -1,5 +1,6 @@
 package uk.co.lemmata.image.oc;
 
+// TODO rethink whether worth writing alternative implementation yet.
 public class JScienceComplexNumberImpl implements ComplexNumber {
 
 	@Override
