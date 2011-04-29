@@ -4,7 +4,6 @@ package uk.co.lemmata.image.oc;
 import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.*;
 import static java.lang.Math.*;
-import static uk.co.lemmata.image.oc.CommonsMathComplexNumberImpl.ZERO;
 
 import org.junit.*;
 
