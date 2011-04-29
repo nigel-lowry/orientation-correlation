@@ -76,5 +76,10 @@ public final class CommonsMathComplexNumberImpl implements ComplexNumber {
 	public ComplexNumber conjugate() {
 		return new CommonsMathComplexNumberImpl(complex.conjugate());
 	}
+
+	@Override
+	public ComplexNumber multiply(ComplexNumber other) {
+		return new CommonsMathComplexNumberImpl(complex.multiply(new Complex(other.getReal(), other.getImaginary())));
+	}
 	
 }

@@ -123,5 +123,14 @@ public class CommonsMathComplexNumberImplTest {
 		assertThat(conjugate.getReal(), is(real));
 		assertThat(conjugate.getImaginary(), is(-imaginary));
 	}
+	
+	@Test
+	public void testMultiply() throws Exception {
+		final ComplexNumber complexNumberA = CommonsMathComplexNumberImpl.realImaginary(2.0, 3.0);
+		final ComplexNumber complexNumberB = CommonsMathComplexNumberImpl.realImaginary(4.0, 7.0);
+		final ComplexNumber expectedProduct = CommonsMathComplexNumberImpl.realImaginary(-13.0, 26.0);
+		
+		assertThat(complexNumberA.multiply(complexNumberB), is(expectedProduct));
+	}
 
 }

@@ -14,4 +14,6 @@ public interface ComplexNumber {
 
 	ComplexNumber conjugate();
 
+	ComplexNumber multiply(ComplexNumber other);
+
 }

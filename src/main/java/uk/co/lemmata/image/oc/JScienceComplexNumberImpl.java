@@ -39,4 +39,10 @@ public class JScienceComplexNumberImpl implements ComplexNumber {
 		return null;
 	}
 
+	@Override
+	public ComplexNumber multiply(ComplexNumber other) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
