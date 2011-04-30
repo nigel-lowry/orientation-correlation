@@ -1,10 +1,8 @@
 package uk.co.lemmata.image.oc;
 
-import static com.google.common.base.Preconditions.checkArgument;
-import static uk.co.lemmata.image.oc.MultiDimensionalArrayUtils.height;
-import static uk.co.lemmata.image.oc.MultiDimensionalArrayUtils.isEmpty;
-import static uk.co.lemmata.image.oc.MultiDimensionalArrayUtils.width;
-import edu.emory.mathcs.jtransforms.fft.DoubleFFT_2D;
+import static com.google.common.base.Preconditions.*;
+import static uk.co.lemmata.image.oc.MultiDimensionalArrayUtils.*;
+import edu.emory.mathcs.jtransforms.fft.*;
 
 
 public class JTransformsFftProvider implements FourierTransformProvider {

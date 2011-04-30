@@ -1,9 +1,9 @@
 package uk.co.lemmata.image.oc;
 
 
+import static java.lang.Math.*;
 import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.*;
-import static java.lang.Math.*;
 
 import org.junit.*;
 
