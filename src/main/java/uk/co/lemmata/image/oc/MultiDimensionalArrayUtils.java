@@ -58,4 +58,18 @@ public final class MultiDimensionalArrayUtils {
 		return new Dimension(width(array), height(array));
 	}
 
+	public static ComplexNumber[][] conjugate(final ComplexNumber[][] array) {
+		final int height = height(array);
+		final int width = width(array);
+		final ComplexNumber[][] conjugates = new ComplexNumber[height][width];
+		
+		for (int row = 0; row < height; row++) {
+			for (int column = 0; column < width; column++) {
+				conjugates[row][column] = array[row][column].conjugate();
+			}
+		}
+		
+		return conjugates;
+	}
+
 }

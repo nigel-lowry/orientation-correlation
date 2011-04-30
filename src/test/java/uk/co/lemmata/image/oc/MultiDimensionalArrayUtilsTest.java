@@ -129,5 +129,18 @@ public class MultiDimensionalArrayUtilsTest {
 		assertThat(MultiDimensionalArrayUtils.atRowColumn(product, 0, 0), is(COMPLEX_00.multiply(COMPLEX_02)));
 		assertThat(MultiDimensionalArrayUtils.atRowColumn(product, 0, 1), is(COMPLEX_01.multiply(COMPLEX_03)));
 	}
+	
+	@Test
+	public void toConjugateArray() {
+		final ComplexNumber[][] array = new ComplexNumber[1][2];
+		
+		array[0][0] = COMPLEX_00;
+		array[0][1] = COMPLEX_01;
+		
+		final ComplexNumber[][] conjugates = MultiDimensionalArrayUtils.conjugate(array);
+		
+		assertThat(MultiDimensionalArrayUtils.atRowColumn(conjugates, 0, 0), is(COMPLEX_00.conjugate()));
+		assertThat(MultiDimensionalArrayUtils.atRowColumn(conjugates, 0, 1), is(COMPLEX_01.conjugate()));
+	}
 
 }
