@@ -2,6 +2,8 @@ package uk.co.lemmata.image.oc;
 
 import static com.google.common.base.Preconditions.*;
 
+import java.awt.*;
+
 public final class MultiDimensionalArrayUtils {
 	
 	private MultiDimensionalArrayUtils() {}
@@ -33,6 +35,27 @@ public final class MultiDimensionalArrayUtils {
 		checkPositionIndex(column, width(array));
 		
 		return array[row][column];
+	}
+
+	public static ComplexNumber[][] multiply(final ComplexNumber[][] array1,
+			final ComplexNumber[][] array2) {
+		checkArgument(getDimensions(array1).equals(getDimensions(array2)));
+		
+		final int height = height(array1);
+		final int width = width(array1);
+		final ComplexNumber product[][] = new ComplexNumber[height][width];
+		
+		for (int row = 0; row < height; row++) {
+			for (int column = 0; column < width; column++) {
+				product[row][column] = array1[row][column].multiply(array2[row][column]);
+			}
+		}
+		
+		return product;
+	}
+	
+	private static Dimension getDimensions(final Object[][] array) {
+		return new Dimension(width(array), height(array));
 	}
 
 }

@@ -102,5 +102,30 @@ public class MultiDimensionalArrayUtilsTest {
 		
 		MultiDimensionalArrayUtils.atRowColumn(array, 1, 2);
 	}
+	
+	@Test(expected=IllegalArgumentException.class)
+	public void multiplyRejectsDifferentDimensions() {
+		final ComplexNumber[][] array1 = new ComplexNumber[1][2];
+		final ComplexNumber[][] array2 = new ComplexNumber[2][1];
+		
+		MultiDimensionalArrayUtils.multiply(array1, array2);
+	}
+	
+	@Test
+	public void multiplyOkayWhenGotSameDimensions() {
+		final ComplexNumber[][] array1 = new ComplexNumber[1][2];
+		final ComplexNumber[][] array2 = new ComplexNumber[1][2];
+		
+		array1[0][0] = COMPLEX_00;
+		array1[0][1] = COMPLEX_01;
+		
+		array2[0][0] = COMPLEX_00;
+		array2[0][1] = COMPLEX_01;
+		
+		final ComplexNumber[][] product = MultiDimensionalArrayUtils.multiply(array1, array2);
+		
+		assertThat(MultiDimensionalArrayUtils.atRowColumn(product, 0, 0), is(COMPLEX_00.multiply(COMPLEX_00)));
+		assertThat(MultiDimensionalArrayUtils.atRowColumn(product, 0, 1), is(COMPLEX_01.multiply(COMPLEX_01)));
+	}
 
 }
