@@ -12,7 +12,7 @@ public class MultiDimensionalArrayUtilsTest {
 	private static final ComplexNumber COMPLEX_01 = CommonsMathComplexNumberImpl.realImaginary(0.0, 1.0);
 	
 	@Test
-	public void testWidth() throws Exception {
+	public void testWidth() {
 		final int height = 2;
 		final int width = 3;
 		
@@ -20,7 +20,7 @@ public class MultiDimensionalArrayUtilsTest {
 	}
 	
 	@Test
-	public void testHeight() throws Exception {
+	public void testHeight() {
 		final int height = 2;
 		final int width = 3;
 		
@@ -28,17 +28,17 @@ public class MultiDimensionalArrayUtilsTest {
 	}
 	
 	@Test
-	public void testSizeZero() throws Exception {
+	public void testSizeZero() {
 		assertThat(MultiDimensionalArrayUtils.size(new ComplexNumber[0][0]), is(0));
 	}
 	
 	@Test
-	public void testIsEmpty() throws Exception {
+	public void testIsEmpty() {
 		assertThat(MultiDimensionalArrayUtils.isEmpty(new ComplexNumber[0][0]), is(true));
 	}
 	
 	@Test
-	public void testWhenHeightIsZeroCannotGetWidthAccuratelySoReturnZero() throws Exception {
+	public void testWhenHeightIsZeroCannotGetWidthAccuratelySoReturnZero() {
 		final int height = 0;
 		final int width = 5;
 		final ComplexNumber[][] array = new ComplexNumber[height][width];
@@ -49,7 +49,7 @@ public class MultiDimensionalArrayUtilsTest {
 	}
 	
 	@Test
-	public void testWhenWidthIsZero() throws Exception {
+	public void testWhenWidthIsZero() {
 		final int height = 5;
 		final int width = 0;
 		final ComplexNumber[][] array = new ComplexNumber[height][width];
@@ -60,12 +60,12 @@ public class MultiDimensionalArrayUtilsTest {
 	}
 	
 	@Test
-	public void testNotEmpty() throws Exception {
+	public void testNotEmpty() {
 		assertThat(MultiDimensionalArrayUtils.isEmpty(new ComplexNumber[1][1]), is(false));
 	}
 	
 	@Test
-	public void testSize() throws Exception {
+	public void testSize() {
 		final int height = 2;
 		final int width = 3;
 		
@@ -73,7 +73,7 @@ public class MultiDimensionalArrayUtilsTest {
 	}
 	
 	@Test
-	public void testAt() throws Exception {
+	public void testAt() {
 		final ComplexNumber[][] array = new ComplexNumber[1][2];
 		
 		array[0][0] = COMPLEX_00;
@@ -84,7 +84,7 @@ public class MultiDimensionalArrayUtilsTest {
 	}
 	
 	@Test(expected=IndexOutOfBoundsException.class)
-	public void testAtNegative() throws Exception {
+	public void testAtNegative() {
 		final ComplexNumber[][] array = new ComplexNumber[1][2];
 		
 		array[0][0] = COMPLEX_00;
@@ -94,7 +94,7 @@ public class MultiDimensionalArrayUtilsTest {
 	}
 	
 	@Test(expected=IndexOutOfBoundsException.class)
-	public void testAtOutside() throws Exception {
+	public void testAtOutside() {
 		final ComplexNumber[][] array = new ComplexNumber[1][2];
 		
 		array[0][0] = COMPLEX_00;

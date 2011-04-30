@@ -14,7 +14,7 @@ public class CommonsMathComplexNumberImplTest {
 	private ComplexNumber complexNumber;
 	
 	@Test
-	public void testCartesianStaticFactory() throws Exception {
+	public void testCartesianStaticFactory() {
 		final double real = 1.0;
 		final double imaginary = 2.0;
 		
@@ -25,7 +25,7 @@ public class CommonsMathComplexNumberImplTest {
 	}
 	
 	@Test
-	public void testPolarStaticFactory() throws Exception {
+	public void testPolarStaticFactory() {
 		final double thirtyDegreesInRadians = toRadians(30.0);
 		final double magnitude = 2.0;
 		
@@ -36,20 +36,20 @@ public class CommonsMathComplexNumberImplTest {
 	}
 	
 	@Test
-	public void signumOfComplexNumberWithMagnitudeZeroIsIdentical() throws Exception {
+	public void signumOfComplexNumberWithMagnitudeZeroIsIdentical()  {
 		complexNumber = CommonsMathComplexNumberImpl.realImaginary(0.0, 0.0);
 		assertThat(complexNumber.signum(), is(complexNumber));
 	}
 	
 	@Test
-	public void signumOfComplexNumberWithMagnitudeOneIsIdentical() throws Exception {
+	public void signumOfComplexNumberWithMagnitudeOneIsIdentical() {
 		complexNumber = CommonsMathComplexNumberImpl.phaseInRadiansMagnitude(PI, 1.0);
 		
 		assertThat(complexNumber.signum(), is(complexNumber));
 	}
 	
 	@Test
-	public void signumOfComplexNumberWithMagnitudeGreaterThanZeroHasMagnitudeOfOneAndSameDirection() throws Exception {
+	public void signumOfComplexNumberWithMagnitudeGreaterThanZeroHasMagnitudeOfOneAndSameDirection() {
 		final double phaseInRadians = PI;
 		
 		complexNumber = CommonsMathComplexNumberImpl.phaseInRadiansMagnitude(phaseInRadians, 5.0);
@@ -61,7 +61,7 @@ public class CommonsMathComplexNumberImplTest {
 	}
 	
 	@Test
-	public void testEquals() throws Exception {
+	public void testEquals() {
 		final ComplexNumber complex1 = CommonsMathComplexNumberImpl.realImaginary(1.0, 1.0);
 		final ComplexNumber complex2 = CommonsMathComplexNumberImpl.realImaginary(1.0, 1.0);
 		
@@ -69,7 +69,7 @@ public class CommonsMathComplexNumberImplTest {
 	}
 	
 	@Test
-	public void testNotEquals() throws Exception {
+	public void testNotEquals() {
 		final ComplexNumber complex1 = CommonsMathComplexNumberImpl.realImaginary(1.0, 1.0);
 		final ComplexNumber complex2 = CommonsMathComplexNumberImpl.realImaginary(2.0, 2.0);
 		
@@ -77,28 +77,28 @@ public class CommonsMathComplexNumberImplTest {
 	}
 	
 	@Test
-	public void testToStringWithPositiveImaginaryPart() throws Exception {
+	public void testToStringWithPositiveImaginaryPart() {
 		complexNumber = CommonsMathComplexNumberImpl.realImaginary(1.0, 2.0);
 		
 		assertThat(complexNumber, hasToString(is("1.0 + 2.0i")));
 	}
 	
 	@Test
-	public void testToStringWithZeroImaginaryPart() throws Exception {
+	public void testToStringWithZeroImaginaryPart() {
 		complexNumber = CommonsMathComplexNumberImpl.realImaginary(1.0, 0.0);
 		
 		assertThat(complexNumber, hasToString(is("1.0 + 0.0i")));
 	}
 	
 	@Test
-	public void testToStringWithNegativeImaginaryPart() throws Exception {
+	public void testToStringWithNegativeImaginaryPart() {
 		complexNumber = CommonsMathComplexNumberImpl.realImaginary(1.0, -2.0);
 		
 		assertThat(complexNumber, hasToString(is("1.0 - 2.0i")));
 	}
 	
 	@Test
-	public void testConjugateFromPositiveToNegative() throws Exception {
+	public void testConjugateFromPositiveToNegative() {
 		final double real = 1.0;
 		final double imaginary = 2.0;
 		
@@ -111,7 +111,7 @@ public class CommonsMathComplexNumberImplTest {
 	}
 	
 	@Test
-	public void testConjugateFromNegativeToPositive() throws Exception {
+	public void testConjugateFromNegativeToPositive() {
 		final double real = 1.0;
 		final double imaginary = -2.0;
 		
@@ -124,7 +124,7 @@ public class CommonsMathComplexNumberImplTest {
 	}
 	
 	@Test
-	public void testMultiply() throws Exception {
+	public void testMultiply() {
 		final ComplexNumber complexNumberA = CommonsMathComplexNumberImpl.realImaginary(2.0, 3.0);
 		final ComplexNumber complexNumberB = CommonsMathComplexNumberImpl.realImaginary(4.0, 7.0);
 		final ComplexNumber expectedProduct = CommonsMathComplexNumberImpl.realImaginary(-13.0, 26.0);

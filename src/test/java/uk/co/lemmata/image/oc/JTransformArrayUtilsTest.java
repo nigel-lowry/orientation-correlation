@@ -8,12 +8,12 @@ import org.junit.Test;
 public class JTransformArrayUtilsTest {
 	
 	@Test(expected=NullPointerException.class)
-	public void shouldRejectNullComplexArray() throws Exception {
+	public void shouldRejectNullComplexArray() {
 		JTransformArrayUtils.toDoubleArray(null);
 	}
 	
 	@Test
-	public void testToDoubleArray() throws Exception {
+	public void testToDoubleArray() {
 		final ComplexNumber[][] complexNumbers = new ComplexNumber[1][2];
 		
 		complexNumbers[0][0] = CommonsMathComplexNumberImpl.realImaginary(1.0, 2.0);
@@ -28,7 +28,7 @@ public class JTransformArrayUtilsTest {
 	}
 	
 	@Test
-	public void testToComplexNumberArray() throws Exception {
+	public void testToComplexNumberArray() {
 		final double[] doubles = {1.0, 2.0, 3.0, 4.0};
 		final ComplexNumber complexNumbers[][] = JTransformArrayUtils.toComplexNumberArray(doubles, 2, 1);
 		

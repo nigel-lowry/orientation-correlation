@@ -10,29 +10,29 @@ public class FourierTransformProviderTest {
 	private ComplexNumber[][] complexNumbers;
 	
 	@Before
-	public void setUp() throws Exception {
+	public void setUp() {
 		fftProvider = new JTransformsFftProvider();
 	}
 	
 	@Test(expected=NullPointerException.class)
-	public void rejectsNullArrayForForwardFft() throws Exception {
+	public void rejectsNullArrayForForwardFft() {
 		fftProvider.forwardFft(null);
 	}
 
 	@Test(expected=NullPointerException.class)
-	public void rejectsNullArrayForBackwardFft() throws Exception {
+	public void rejectsNullArrayForBackwardFft() {
 		fftProvider.backwardFft(null);
 	}
 	
 	@Test(expected=IllegalArgumentException.class)
-	public void rejectsEmptyArrayForForwardsFft() throws Exception {
+	public void rejectsEmptyArrayForForwardsFft() {
 		complexNumbers = new ComplexNumber[0][0];
 		
 		fftProvider.forwardFft(complexNumbers);
 	}
 	
 	@Test(expected=IllegalArgumentException.class)
-	public void rejectsEmptyArrayForBackwardsFft() throws Exception {
+	public void rejectsEmptyArrayForBackwardsFft() {
 		complexNumbers = new ComplexNumber[0][0];
 		
 		fftProvider.backwardFft(complexNumbers);
