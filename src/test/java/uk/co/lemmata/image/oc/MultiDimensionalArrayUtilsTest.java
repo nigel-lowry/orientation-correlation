@@ -10,6 +10,8 @@ public class MultiDimensionalArrayUtilsTest {
 	
 	private static final ComplexNumber COMPLEX_00 = CommonsMathComplexNumberImpl.realImaginary(0.0, 0.0);
 	private static final ComplexNumber COMPLEX_01 = CommonsMathComplexNumberImpl.realImaginary(0.0, 1.0);
+	private static final ComplexNumber COMPLEX_02 = CommonsMathComplexNumberImpl.realImaginary(0.0, 2.0);
+	private static final ComplexNumber COMPLEX_03 = CommonsMathComplexNumberImpl.realImaginary(0.0, 3.0);
 	
 	@Test
 	public void testWidth() {
@@ -119,13 +121,13 @@ public class MultiDimensionalArrayUtilsTest {
 		array1[0][0] = COMPLEX_00;
 		array1[0][1] = COMPLEX_01;
 		
-		array2[0][0] = COMPLEX_00;
-		array2[0][1] = COMPLEX_01;
+		array2[0][0] = COMPLEX_02;
+		array2[0][1] = COMPLEX_03;
 		
 		final ComplexNumber[][] product = MultiDimensionalArrayUtils.multiply(array1, array2);
 		
-		assertThat(MultiDimensionalArrayUtils.atRowColumn(product, 0, 0), is(COMPLEX_00.multiply(COMPLEX_00)));
-		assertThat(MultiDimensionalArrayUtils.atRowColumn(product, 0, 1), is(COMPLEX_01.multiply(COMPLEX_01)));
+		assertThat(MultiDimensionalArrayUtils.atRowColumn(product, 0, 0), is(COMPLEX_00.multiply(COMPLEX_02)));
+		assertThat(MultiDimensionalArrayUtils.atRowColumn(product, 0, 1), is(COMPLEX_01.multiply(COMPLEX_03)));
 	}
 
 }
