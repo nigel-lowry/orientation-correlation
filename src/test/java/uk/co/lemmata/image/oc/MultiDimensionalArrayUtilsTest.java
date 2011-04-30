@@ -144,11 +144,21 @@ public class MultiDimensionalArrayUtilsTest {
 	}
 	
 	@Test
-	public void toPrimitives() throws Exception {
+	public void toPrimitives() {
 		final double[][] primitives = {{1.0, 2.0}};
 		final Double[][] wrappers = {{1.0, 2.0}};
 		
 		assertThat(MultiDimensionalArrayUtils.toWrappers(primitives), is(wrappers));
+	}
+	
+	@Test
+	public void testGet() {
+		final double double00 = 1.0;
+		final double double01 = 2.0;
+		final double[][] primitives = {{double00, double01}};
+		
+		assertThat(MultiDimensionalArrayUtils.get(primitives, 0, 0), is(double00));
+		assertThat(MultiDimensionalArrayUtils.get(primitives, 0, 1), is(double01));
 	}
 
 }

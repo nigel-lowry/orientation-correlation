@@ -86,4 +86,8 @@ public final class MultiDimensionalArrayUtils {
 		return wrappers;
 	}
 
+	public static double get(final double[][] array, final int row, final int column) {
+		return array[row][column];
+	}
+
 }
