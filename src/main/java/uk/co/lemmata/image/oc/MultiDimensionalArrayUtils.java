@@ -72,4 +72,18 @@ public final class MultiDimensionalArrayUtils {
 		return conjugates;
 	}
 
+	public static Double[][] toWrappers(final double[][] primitives) {
+		final int height = primitives.length; // TODO need methods for these
+		final int width = primitives[0].length;
+		final Double[][] wrappers = new Double[height][width];
+		
+		for (int row = 0; row < height; row++) {
+			for (int column = 0; column < width; column++) {
+				wrappers[row][column] = primitives[row][column];
+			}
+		}
+		
+		return wrappers;
+	}
+
 }

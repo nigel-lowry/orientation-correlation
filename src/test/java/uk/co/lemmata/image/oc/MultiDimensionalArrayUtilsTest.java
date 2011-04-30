@@ -142,5 +142,13 @@ public class MultiDimensionalArrayUtilsTest {
 		assertThat(MultiDimensionalArrayUtils.atRowColumn(conjugates, 0, 0), is(COMPLEX_00.conjugate()));
 		assertThat(MultiDimensionalArrayUtils.atRowColumn(conjugates, 0, 1), is(COMPLEX_01.conjugate()));
 	}
+	
+	@Test
+	public void toPrimitives() throws Exception {
+		final double[][] primitives = {{1.0, 2.0}};
+		final Double[][] wrappers = {{1.0, 2.0}};
+		
+		assertThat(MultiDimensionalArrayUtils.toWrappers(primitives), is(wrappers));
+	}
 
 }
