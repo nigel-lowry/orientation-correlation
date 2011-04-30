@@ -36,7 +36,7 @@ public class CommonsMathComplexNumberImplTest {
 	}
 	
 	@Test
-	public void signumOfComplexNumberWithMagnitudeZeroIsIdentical()  {
+	public void signumOfComplexNumberWithMagnitudeZeroIsIdentical() {
 		complexNumber = CommonsMathComplexNumberImpl.realImaginary(0.0, 0.0);
 		assertThat(complexNumber.signum(), is(complexNumber));
 	}
