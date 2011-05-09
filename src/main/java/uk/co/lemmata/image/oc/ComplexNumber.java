@@ -2,6 +2,8 @@ package uk.co.lemmata.image.oc;
 
 interface ComplexNumber {
 
+	ComplexNumber square();
+	
 	ComplexNumber signum();
 
 	double getReal();

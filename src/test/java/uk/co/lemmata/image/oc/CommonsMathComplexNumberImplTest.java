@@ -131,5 +131,12 @@ public class CommonsMathComplexNumberImplTest {
 		
 		assertThat(complexNumberA.multiply(complexNumberB), is(expectedProduct));
 	}
+	
+	@Test
+	public void testSquare() {
+		final ComplexNumber i = CommonsMathComplexNumberImpl.realImaginary(0.0, 1);
+		assertThat(i.square().getReal(), is(closeTo(-1.0, ERROR_DELTA)));
+		assertThat(i.square().getImaginary(), is(closeTo(0.0, ERROR_DELTA)));
+	}
 
 }

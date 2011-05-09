@@ -81,5 +81,10 @@ public final class CommonsMathComplexNumberImpl implements ComplexNumber {
 	public ComplexNumber multiply(ComplexNumber other) {
 		return new CommonsMathComplexNumberImpl(complex.multiply(new Complex(other.getReal(), other.getImaginary())));
 	}
+
+	@Override
+	public ComplexNumber square() {
+		return new CommonsMathComplexNumberImpl(complex.multiply(complex));
+	}
 	
 }
