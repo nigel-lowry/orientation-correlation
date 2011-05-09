@@ -17,7 +17,7 @@ public class GradientImageProviderTest {
 	
 	@Test
 	public void test3by3() {
-		final double[][] doubles = {
+		final Double[][] doubles = {
 				{1.0, 2.0, 4.0},
 				{8.0, 16.0, 32.0},
 				{64.0, 128.0, 256.0}

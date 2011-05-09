@@ -5,13 +5,12 @@ import static uk.co.lemmata.image.oc.MultiDimensionalArrayUtils.*;
 public class SimpleGradientImageProvider implements GradientImageProvider {
 
 	@Override
-	public ComplexNumber[][] gradientImage(final double[][] intensity) {
-		final Double[][] wrappers = toWrappers(intensity);
-		final double[][] real = real(wrappers);
-		final double[][] imag = imaginary(wrappers);
+	public ComplexNumber[][] gradientImage(final Double[][] intensity) {
+		final double[][] real = real(intensity);
+		final double[][] imag = imaginary(intensity);
 		
-		final int height = height(wrappers);
-		final int width = width(wrappers);
+		final int height = height(intensity);
+		final int width = width(intensity);
 		
 		final ComplexNumber[][] complexNumbers = new ComplexNumber[height][width];
 		
@@ -64,6 +63,23 @@ public class SimpleGradientImageProvider implements GradientImageProvider {
 		}
 		
 		return imaginaries;
+	}
+
+	@Override
+	public ComplexNumber[][] squaredGradientImage(Double[][] intensity) {
+		final ComplexNumber[][] gradientImage = gradientImage(intensity);
+		final int height = height(intensity);
+		final int width = width(intensity);
+		
+		final ComplexNumber[][] squared = new ComplexNumber[height][width];
+		
+		for (int row = 0; row < height; row++) {
+			for (int column = 0; column < width; column++) {
+				squared[row][column] = gradientImage[row][column].square();
+			}
+		}
+		
+		return squared;
 	}
 
 }

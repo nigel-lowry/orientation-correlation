@@ -20,7 +20,7 @@ public class ImageAlignerTest {
 	
 	@Test
 	public void testMultimodalRegistration() throws Exception {
-		assertThat(aligner.multiModal(new File("src/test/resources/brightfield.gif"), new File("src/test/resources/phasecontrast.gif")), is(AffineTransform.getTranslateInstance(100, 200)));
+		assertThat(aligner.multiModal(new File("src/test/resources/brightfield.gif"), new File("src/test/resources/phasecontrast.gif")), is(AffineTransform.getTranslateInstance(169, 30)));
 	}
 
 }

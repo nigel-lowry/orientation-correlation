@@ -74,7 +74,8 @@ public final class CommonsMathComplexNumberImpl implements ComplexNumber {
 
 	@Override
 	public ComplexNumber conjugate() {
-		return new CommonsMathComplexNumberImpl(complex.conjugate());
+		// TODO would be nice to get this to work with complex.conjugate()
+		return CommonsMathComplexNumberImpl.realImaginary(getReal(), -getImaginary());
 	}
 
 	@Override

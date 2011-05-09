@@ -29,4 +29,5 @@ public class Array2dTest {
 		assertThat(array.getRowColumn(1, 1), is(5.0));
 		assertThat(array.getRowColumn(2, 2), is(9.0));
 	}
+	
 }
