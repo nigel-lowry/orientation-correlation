@@ -7,9 +7,11 @@ sourceCompatibility = 1.6
 repositories {
     mavenCentral()
     mavenRepo urls: "http://signalml.org/maven/repository"
+    mavenRepo urls: "http://repository.jboss.org/nexus/content/groups/public-jboss/"
 }
 
 dependencies {
+	compile 'javax.media:jai-core:1.1.3'
 	compile 'edu.emory.mathcs:jtransforms:2.3'
 	compile 'com.google.guava:guava:r09'
 	compile 'org.apache.commons:commons-math:2.2'
